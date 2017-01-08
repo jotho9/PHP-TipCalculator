@@ -5,7 +5,7 @@
   <title>Tip Calculator</title>
   
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  
 
 </head>
 <body>
@@ -15,7 +15,7 @@
           $bill_amount = 0;
           $tip_percent = 0;
           $custom_percent = 0;
-          $bill_split = 0;
+          $bill_split = 1;
           $tip = $total = '';
           $tip_id = array(10,15,20,0);
           $bill_text_color = 'w3-text-black';
@@ -79,15 +79,13 @@
           else {
             return 0;
           }
-
-          
          }
 
          function displayResults() {
           echo "<ul class='w3-ul'>".
                "<li>Tip: $".displayTipResult()."<li>".
                "<li>Total: $".displayTotal()."<li>";
-          if(isset($GLOBALS['bill_split']) && test_input($GLOBALS['bill_split']) > 0) {
+          if(isset($GLOBALS['bill_split']) && test_input($GLOBALS['bill_split']) > 1) {
 
                echo "<li>Tip Each: $".displayTipEach()."<li>".
                "<li>Total Each: $".displayTotalEach()."<li>";
@@ -173,7 +171,7 @@
         <div class="w3-row, w3-section w3-margin-left">
         <label class="w3-label, w3-inline,w3-validate <?php echo $split_text_color;?>" for="bill_amount">Bill Split: </label>
         <input class="w3-input, w3-border <?php echo $split_textbox_color;?>" type="text" style="max-width: 30%" name="bill_split"  
-        value="<?php echo $bill_split ?>"> persons(s)
+        value="<?php echo $bill_split ?>"> person(s)
         </div>
         <br><input class="w3-section w3-margin-left" type="submit" name="Submit"><br>
         <div>
